@@ -3,7 +3,8 @@ import { Switch, Route } from 'react-router-dom';
 
 import Header from './components/header/header.component';
 
-import HomePage from './pages/homepage/homepage.component';
+import HomePage from './pages/home/home.component';
+import ShopPage from './pages/shop/shop.component';
 
 const App = () => {
   return (
@@ -11,7 +12,7 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact path='/' component={HomePage} />
-        <Route path='/order' component={HomePage} />
+        <Route path='/shop' component={ShopPage} />
         <Route path='/about' component={HomePage} />
         <Route path='/contact' component={HomePage} />
         <Route path='/checkout' component={HomePage} />

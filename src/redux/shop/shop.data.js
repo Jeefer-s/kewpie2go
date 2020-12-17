@@ -1,5 +1,5 @@
-const SHOP_DATA = {
-  nigiri: {
+export const SHOP_DATA = [
+  {
     id: 1,
     title: 'Nigiri',
     routeName: 'nigiri',
@@ -31,7 +31,7 @@ const SHOP_DATA = {
       },
     ],
   },
-  specialRolls: {
+  {
     id: 2,
     title: 'Special Sushi Rolls',
     routeName: 'specialrolls',
@@ -65,7 +65,7 @@ const SHOP_DATA = {
       },
     ],
   },
-  sushiMix: {
+  {
     id: 3,
     title: 'Sushi Mix',
     routeName: 'sushimix',
@@ -105,7 +105,7 @@ const SHOP_DATA = {
       },
     ],
   },
-  sashimi: {
+  {
     id: 4,
     title: 'Sashimi',
     routeName: 'sashimi',
@@ -129,4 +129,4 @@ const SHOP_DATA = {
       },
     ],
   },
-};
+];
