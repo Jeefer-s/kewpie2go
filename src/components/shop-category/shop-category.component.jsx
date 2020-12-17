@@ -15,7 +15,7 @@ const ShopCategory = ({ category }) => (
     </TitleContainer>
     <GridContainer>
       {category.items.map((item) => (
-        <ShopItem shopItem={item} />
+        <ShopItem shopItem={item} key={item.id} />
       ))}
     </GridContainer>
   </CategoryContainer>

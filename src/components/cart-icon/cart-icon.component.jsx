@@ -1,5 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { toggleCartHidden } from '../../redux/cart/cart.actions.js';
 
 import {
   ShoppingCartIcon,
@@ -8,12 +10,16 @@ import {
 } from './cart-icon.styles';
 
 const CartIcon = () => {
-  //   const { itemCount } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  const { cartItems } = useSelector((state) => state.cart);
+
+  const itemCount = cartItems.reduce((sum, item) => item.quantity + sum, 0);
 
   return (
-    <CartContainer>
+    <CartContainer onClick={() => dispatch(toggleCartHidden())}>
       <ShoppingCartIcon />
-      <ItemCountContainer>8</ItemCountContainer>
+      <ItemCountContainer>{itemCount}</ItemCountContainer>
     </CartContainer>
   );
 };

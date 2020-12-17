@@ -10,7 +10,7 @@ const ShopPage = () => {
   return (
     <div>
       {categories.map((category) => (
-        <ShopCategory category={category} />
+        <ShopCategory category={category} key={category.id} />
       ))}
     </div>
   );
