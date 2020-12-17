@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { ReactComponent as Logo } from '../../assets/logo/logo.svg';
 import CartIcon from '../cart-icon/cart-icon.component';
@@ -13,10 +14,12 @@ import {
 const Header = () => (
   <HeaderContainer>
     <LinksContainer>
-      <LogoContainer to='/'>
-        <Logo />
+      <LogoContainer>
+        <Link to='/'>
+          <Logo />
+        </Link>
       </LogoContainer>
-      <StyledLink to='/order'>ORDER</StyledLink>
+      <StyledLink to='/shop'>SHOP</StyledLink>
       <StyledLink to='/about'>ABOUT</StyledLink>
       <StyledLink to='/contact'>CONTACT</StyledLink>
       <CartIcon />

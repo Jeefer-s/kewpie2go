@@ -9,7 +9,7 @@ export const StyledLink = styled(Link)`
   cursor: pointer;
 `;
 
-export const LinksContainer = styled(Link)`
+export const LinksContainer = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
