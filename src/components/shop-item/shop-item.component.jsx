@@ -7,31 +7,22 @@ import {
   ItemPrice,
   ItemName,
   ItemDescription,
+  ItemImageContainer,
 } from './shop-item.styles';
 
 const ShopItem = ({ shopItem }) => {
-  const itemStyle = {
-    color: '#353131',
-    padding: '0 8px',
-    border: '1px solid rgba(255, 255, 255, 0.7)',
-    display: 'grid',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'antiquewhite',
-    borderRadius: '4px',
-  };
-
+  const { id, name, price, description } = shopItem;
   const imgUrl = (id) => `/images/shop-items/${id}.png`;
 
   return (
     <ItemContainer>
-      <div style={{ display: 'block' }}>
-        <ItemImage src={imgUrl(shopItem.id)} />
-      </div>
+      <ItemImageContainer>
+        <ItemImage className='bg-image' src={imgUrl(id)} />
+      </ItemImageContainer>
       <ItemInfoContainer>
-        <ItemName style={itemStyle}>{shopItem.name}</ItemName>
-        <ItemPrice>{`€${shopItem.price}`}</ItemPrice>
-        <ItemDescription>{shopItem.description}</ItemDescription>
+        <ItemName>{name}</ItemName>
+        <ItemPrice>{`€${price}`}</ItemPrice>
+        <ItemDescription>{description}</ItemDescription>
       </ItemInfoContainer>
     </ItemContainer>
   );

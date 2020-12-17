@@ -13,7 +13,7 @@ export const ItemContainer = styled.div`
 `;
 
 export const ItemInfoContainer = styled.div`
-  height: 100%;
+  height: 60%;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: 1fr 1fr 1fr;
@@ -23,20 +23,30 @@ export const ItemInfoContainer = styled.div`
     'd d d d d d d d ';
 `;
 
+export const ItemImageContainer = styled.div`
+  display: block;
+  overflow: hidden;
+  height: 100%;
+`;
+
 export const ItemImage = styled.img`
   src: ${(props) => props.src};
   width: 320px;
   height: 240px;
   object-fit: fill;
   border-radius: 4px;
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+  }
 `;
 
 export const ItemPrice = styled.div`
   display: grid;
   grid-area: p;
   background-color: #b3cbd4a4;
-  padding: '0 8px';
-  border: '1px solid rgba(255, 255, 255, 0.7)';
+  padding: 0 8px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
   align-items: center;
   justify-content: center;
 `;
@@ -44,6 +54,14 @@ export const ItemPrice = styled.div`
 export const ItemName = styled.div`
   display: grid;
   grid-area: n;
+  color: #353131;
+  padding: 0 8px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background-color: antiquewhite;
+  border-radius: 4px;
 `;
 
 export const ItemDescription = styled.div`
@@ -52,8 +70,9 @@ export const ItemDescription = styled.div`
   margin-top: 1px;
   border-radius: 4px 4px 6px 6px;
   background-color: rgba(255, 255, 255, 0.8);
-  padding: '0 8px';
-  border: '1px solid rgba(255, 255, 255, 0.7)';
+  padding: 0 8px;
+  border-top: 1px solid black;
+  border: 1px solid rgba(255, 255, 255, 0.7);
   display: grid;
   text-align: center;
   align-items: center;
