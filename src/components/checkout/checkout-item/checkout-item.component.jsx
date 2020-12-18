@@ -1,33 +1,52 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import {
+  addItemToCart,
+  removeItemFromCart,
+} from '../../../redux/cart/cart.actions';
+
 import {
   CheckoutItemContainer,
   CheckoutItemInfoContainer,
   ImageContainer,
   TextContainer,
   QuantityContainer,
-  RemoveButton,
   PriceContainer,
+  QtyTextContainer,
+  TotalTextContainer,
 } from './checkout-item.styles';
 
 const CheckoutItem = ({ checkoutItem }) => {
-  const { name, imageUrl, price, quantity } = checkoutItem;
+  const dispatch = useDispatch();
+  const { name, id, price, quantity } = checkoutItem;
+
+  const imgUrl = (id) => `/images/shop-items/${id}.png`;
 
   return (
     <CheckoutItemContainer>
       <ImageContainer>
-        <img alt='' src={imageUrl} />
+        <img alt='' src={imgUrl(id)} />
       </ImageContainer>
       <CheckoutItemInfoContainer>
         <TextContainer>{name}</TextContainer>
-        <TextContainer>Quantity</TextContainer>
+        <QtyTextContainer>Quantity</QtyTextContainer>
         <QuantityContainer>
-          <div>&#10094;</div>
+          <div onClick={() => dispatch(removeItemFromCart(checkoutItem))}>
+            &#10094;
+          </div>
           <span>{quantity}</span>
-          <div>&#10095;</div>
+          <div onClick={() => dispatch(addItemToCart(checkoutItem))}>
+            &#10095;
+          </div>
         </QuantityContainer>
-        <RemoveButton>REMOVE</RemoveButton>
       </CheckoutItemInfoContainer>
-      <PriceContainer>{price}</PriceContainer>
+      <PriceContainer>
+        <div>€{price}/pc</div>
+        <TotalTextContainer>
+          TOTAL:{' '}
+          <span style={{ color: 'darkslategray' }}>€{price * quantity}</span>
+        </TotalTextContainer>
+      </PriceContainer>
     </CheckoutItemContainer>
   );
 };

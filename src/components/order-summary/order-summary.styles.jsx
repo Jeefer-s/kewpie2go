@@ -4,8 +4,8 @@ import CustomButton from '../custom-button/custom-button.component';
 export const CheckoutSummaryContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 300px;
-  padding: 12px;
+  width: 280px;
+  margin: 0 24px;
 `;
 
 export const RowContainer = styled.div`
@@ -22,9 +22,9 @@ export const ValueContainer = styled.span`
 export const Divider = styled.div`
   background-color: lightgray;
   height: 1px;
-  width: 85%;
+  width: 90%;
   align-self: center;
-  margin: 8px 0;
+  margin: 16px 0;
 `;
 
 export const TotalRowContainer = styled.div`

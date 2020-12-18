@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { selectCartHidden } from '../../redux/cart/cart.selectors';
 
 import { ReactComponent as Logo } from '../../assets/logo/logo.svg';
 import CartIcon from '../cart-icon/cart-icon.component';
@@ -14,7 +15,7 @@ import {
 } from './header.styles';
 
 const Header = () => {
-  const { hidden } = useSelector((state) => state.cart);
+  const hidden = useSelector(selectCartHidden);
 
   return (
     <HeaderContainer>

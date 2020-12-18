@@ -3,9 +3,8 @@ import CustomButton from '../../custom-button/custom-button.component';
 
 export const CheckoutItemContainer = styled.div`
   display: flex;
-  border: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
   width: 100%;
-  flex-direction: column;
   padding: 8px;
 
   button {
@@ -17,7 +16,8 @@ export const CheckoutItemInfoContainer = styled.div`
   display: flex;
   width: 60%;
   flex-direction: column;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
   button {
     width: 20%;
   }
@@ -33,26 +33,41 @@ export const ImageContainer = styled.div`
 `;
 
 export const TextContainer = styled.span`
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.5rem;
   width: 100%;
   text-align: center;
 `;
 
 export const QuantityContainer = styled.div`
-  width: 20%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: darkslategrey;
   div {
     cursor: pointer;
   }
 `;
 
-export const RemoveButton = styled(CustomButton)`
-  width: 140px;
+export const PriceContainer = styled.div`
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-end;
+  flex-direction: column;
+  font-size: 14px;
 `;
 
-export const PriceContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
+export const QtyTextContainer = styled.span`
+  font-size: 12px;
+  color: gray;
+  margin-top: 8px;
+`;
+
+export const TotalTextContainer = styled.div`
+  font-size: 14px;
+  color: gray;
+  margin-top: 12px;
 `;

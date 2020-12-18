@@ -1,32 +1,32 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import {
+  selectCartItems,
+  selectCartTotal,
+} from '../../redux/cart/cart.selectors';
 
 import {
   CartContainer,
   CheckoutButton,
-  ClearCartButton,
   CartFooter,
 } from './cart-dropdown.styles';
 
 import CartHeader from './cart-header/cart-header.component';
 import CartItem from './cart-item/cart-item.component';
+import { toggleCartHidden } from '../../redux/cart/cart.actions';
 
 const CartDropdown = () => {
-  const { cartItems } = useSelector((state) => state.cart);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
+
+  const dispatch = useDispatch();
   const history = useHistory();
-
-  const totalPrice = () =>
-    cartItems.reduce(
-      (sum, cartItem) => sum + cartItem.price * cartItem.quantity,
-      0
-    );
-
-  const handleClick = () => history.push('/checkout');
 
   return (
     <CartContainer>
-      <CartHeader totalPrice={totalPrice()} />
+      <CartHeader totalPrice={cartTotal} />
       {cartItems.map((cartItem) => (
         <CartItem cartItem={cartItem} key={cartItem.id} />
       ))}
@@ -34,7 +34,14 @@ const CartDropdown = () => {
         {cartItems.length === 0 ? (
           'Your cart is empty.'
         ) : (
-          <CheckoutButton onClick={() => handleClick}>checkout</CheckoutButton>
+          <CheckoutButton
+            onClick={() => {
+              history.push('/checkout');
+              dispatch(toggleCartHidden());
+            }}
+          >
+            checkout
+          </CheckoutButton>
         )}
       </CartFooter>
     </CartContainer>

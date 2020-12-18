@@ -15,6 +15,7 @@ export const CartContainer = styled.div`
   position: absolute;
   border-radius: 8px;
   box-shadow: 2px 4px rgba(85, 85, 85, 0.4);
+  border: 1px solid lightgray;
 `;
 
 export const CheckoutButton = styled(CustomButton)`
