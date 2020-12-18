@@ -1,4 +1,7 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
+import { addItemToCart } from '../../redux/cart/cart.actions';
 
 import {
   ItemContainer,
@@ -8,11 +11,14 @@ import {
   ItemName,
   ItemDescription,
   ItemImageContainer,
+  AddButton,
 } from './shop-item.styles';
 
 const ShopItem = ({ shopItem }) => {
   const { id, name, price, description } = shopItem;
   const imgUrl = (id) => `/images/shop-items/${id}.png`;
+
+  const dispatch = useDispatch();
 
   return (
     <ItemContainer>
@@ -24,6 +30,9 @@ const ShopItem = ({ shopItem }) => {
         <ItemPrice>{`€${price}`}</ItemPrice>
         <ItemDescription>{description}</ItemDescription>
       </ItemInfoContainer>
+      <AddButton onClick={() => dispatch(addItemToCart(shopItem))}>
+        Add to cart
+      </AddButton>
     </ItemContainer>
   );
 };

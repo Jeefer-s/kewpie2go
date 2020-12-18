@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import CustomButton from '../custom-button/custom-button.component';
 
 export const ItemContainer = styled.div`
   padding: 8px;
+  position: relative;
   display: flex;
   margin: 4px;
   flex-direction: column;
@@ -10,6 +12,12 @@ export const ItemContainer = styled.div`
   border: 1px white solid;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 6px;
+  &:hover {
+    button {
+      opacity: 0.9;
+      display: flex;
+    }
+  }
 `;
 
 export const ItemInfoContainer = styled.div`
@@ -77,4 +85,12 @@ export const ItemDescription = styled.div`
   text-align: center;
   align-items: center;
   justify-content: center;
+`;
+
+export const AddButton = styled(CustomButton)`
+  width: 140px;
+  top: 180px;
+  position: absolute;
+  display: none;
+  align-self: center;
 `;
