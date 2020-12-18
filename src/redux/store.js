@@ -1,15 +1,16 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { persistStore } from 'redux-persist';
 
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import cartReducer from '../redux/cart/cart.reducer';
+import rootReducer from './root-reducer';
 
 const store = createStore(
-  combineReducers({
-    cart: cartReducer,
-  }),
+  rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-export default store;
+const persistor = persistStore(store);
+
+export { store, persistor };

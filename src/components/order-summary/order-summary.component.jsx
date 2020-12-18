@@ -7,7 +7,7 @@ import {
   TotalRowContainer,
   Divider,
   OrderButton,
-} from './checkout-summary.styles';
+} from './order-summary.styles';
 
 const CheckoutSummary = () => {
   return (
@@ -19,7 +19,7 @@ const CheckoutSummary = () => {
       </RowContainer>
       <RowContainer>
         <span>Coupon Discount</span>
-        <ValueContainer>€50</ValueContainer>
+        <ValueContainer>€20</ValueContainer>
       </RowContainer>
       <RowContainer>
         <span>Chopsticks</span>
@@ -38,7 +38,7 @@ const CheckoutSummary = () => {
         <span style={{ fontSize: '20px', letterSpacing: '1px' }}>
           Order Total
         </span>
-        <ValueContainer>€83</ValueContainer>
+        <ValueContainer>€113</ValueContainer>
       </TotalRowContainer>
       <OrderButton inverted>Place order</OrderButton>
     </CheckoutSummaryContainer>
