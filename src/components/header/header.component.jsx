@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { ReactComponent as Logo } from '../../assets/logo/logo.svg';
 import CartIcon from '../cart-icon/cart-icon.component';
@@ -29,7 +29,7 @@ const Header = () => {
         <StyledLink to='/contact'>CONTACT</StyledLink>
         <CartIcon />
       </LinksContainer>
-      {!hidden ? <CartDropdown /> : null}
+      {hidden ? null : <CartDropdown />}
     </HeaderContainer>
   );
 };

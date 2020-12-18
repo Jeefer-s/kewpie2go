@@ -28,3 +28,6 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
       : { ...item, quantity: item.quantity - 1 }
   );
 };
+
+export const clearItemFromCart = (cartItems, cartItemToClear) =>
+  cartItems.filter((cartItem) => cartItem !== cartItemToClear);

@@ -10,6 +10,15 @@ export const removeItemFromCart = (item) => ({
   payload: item,
 });
 
+export const clearItemFromCart = (item) => ({
+  type: CartActionTypes.CLEAR_ITEM,
+  payload: item,
+});
+
+export const clearAllItemsFromCart = () => ({
+  type: CartActionTypes.REMOVE_ITEM,
+});
+
 export const toggleCartHidden = () => ({
   type: CartActionTypes.TOGGLE_CART_HIDDEN,
 });
