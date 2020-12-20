@@ -7,11 +7,13 @@ import Footer from './components/footer/footer.component';
 import HomePage from './pages/home/home.component';
 import ShopPage from './pages/shop/shop.component';
 import CheckoutPage from './pages/checkout/checkout.component';
+import ReservationPage from './pages/reservation/reservation.component';
 
 const App = () => {
   const appContainerSyles = {
     position: 'relative',
     minHeight: '100vh',
+    width: '100vw',
   };
   return (
     <div style={appContainerSyles}>
@@ -19,13 +21,15 @@ const App = () => {
       <div
         style={{
           paddingBottom: '200px',
+          width: '80%',
+          margin: 'auto',
         }}
       >
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
           <Route path='/about' component={HomePage} />
-          <Route path='/contact' component={HomePage} />
+          <Route path='/reservation' component={ReservationPage} />
           <Route path='/checkout' component={CheckoutPage} />
         </Switch>
       </div>

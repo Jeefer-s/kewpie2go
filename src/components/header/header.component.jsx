@@ -27,7 +27,7 @@ const Header = () => {
         </LogoContainer>
         <StyledLink to='/shop'>SHOP</StyledLink>
         <StyledLink to='/about'>ABOUT</StyledLink>
-        <StyledLink to='/contact'>CONTACT</StyledLink>
+        <StyledLink to='/reservation'>RESERVATION</StyledLink>
         <CartIcon />
       </LinksContainer>
       {hidden ? null : <CartDropdown />}
