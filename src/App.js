@@ -5,6 +5,7 @@ import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
 
 import HomePage from './pages/home/home.component';
+import AboutPage from './pages/about/about.component';
 import ShopPage from './pages/shop/shop.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 import ReservationPage from './pages/reservation/reservation.component';
@@ -22,13 +23,13 @@ const App = () => {
         style={{
           paddingBottom: '200px',
           width: '80%',
-          margin: 'auto',
+          margin: '28px auto',
         }}
       >
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
-          <Route path='/about' component={HomePage} />
+          <Route path='/about' component={AboutPage} />
           <Route path='/reservation' component={ReservationPage} />
           <Route path='/checkout' component={CheckoutPage} />
         </Switch>

@@ -9,6 +9,10 @@ export const ReservationPageContainer = styled.div`
   margin: 10px 16px;
   justify-content: center;
   background: whitesmoke;
+  color: darkslategrey;
+  h2 {
+    align-self: center;
+  }
 `;
 
 export const RulesContainer = styled.div`
