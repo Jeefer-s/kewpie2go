@@ -1,5 +1,6 @@
 const CHEFS_DATA = [
   {
+    id: 1,
     name: 'Hiro Terada',
     age: 42,
     profession: 'Sushi Chef & Innovator',
@@ -12,12 +13,26 @@ const CHEFS_DATA = [
     ],
   },
   {
+    id: 2,
     name: 'Jiro Ono',
     age: 94,
     profession: 'Sushi Grandmaster & CEO',
     knownFor: 'Jiro Dreams Of Sushi',
     image: '/images/jiro.png',
     specialties: ['Dreamer of Sushi', 'Tamago perfection', 'Finest Sashimi'],
+  },
+  {
+    id: 3,
+    name: 'Jeff San',
+    age: 27,
+    profession: 'Sushi Master Wannabe',
+    knownFor: 'Cutting his fingers',
+    image: '/images/jeff.png',
+    specialties: [
+      'Lightning fast nigiri maker',
+      'Always burnt Tamago',
+      'Decoration',
+    ],
   },
 ];
 

@@ -15,7 +15,7 @@ const Chef = ({ chef }) => (
       <span>Specialties</span>
       <ul>
         {chef.specialties.map((specialty) => (
-          <li>{specialty}</li>
+          <li key={specialty}>{specialty}</li>
         ))}
       </ul>
     </InfoContainer>

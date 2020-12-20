@@ -8,7 +8,7 @@ const ChefsSection = () => (
     <h2>Meet Our Chefs</h2>
     <div style={{ display: 'flex' }}>
       {CHEFS_DATA.map((chef) => (
-        <Chef chef={chef} />
+        <Chef chef={chef} key={chef.id} />
       ))}
     </div>
   </ChefsSectionContainer>

@@ -7,4 +7,8 @@ export const ChefsSectionContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: whitesmoke;
+
+  h2 {
+    margin-bottom: 12px;
+  }
 `;
