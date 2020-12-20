@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectCartTotal } from '../../redux/cart/cart.selectors';
 
 import {
-  CheckoutSummaryContainer,
+  OrderSummaryContainer,
   RowContainer,
   ValueContainer,
   TotalRowContainer,
@@ -16,7 +16,7 @@ const CheckoutSummary = () => {
   const cartTotal = useSelector(selectCartTotal);
 
   return (
-    <CheckoutSummaryContainer>
+    <OrderSummaryContainer>
       <h2 style={{ textAlign: 'center' }}>Order Summary</h2>
       <RowContainer>
         <span>Shopping Cart Total</span>
@@ -46,7 +46,7 @@ const CheckoutSummary = () => {
         <ValueContainer>€113</ValueContainer>
       </TotalRowContainer>
       <OrderButton inverted>Place order</OrderButton>
-    </CheckoutSummaryContainer>
+    </OrderSummaryContainer>
   );
 };
 

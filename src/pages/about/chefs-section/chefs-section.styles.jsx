@@ -9,6 +9,6 @@ export const ChefsSectionContainer = styled.div`
   background-color: whitesmoke;
 
   h2 {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
   }
 `;

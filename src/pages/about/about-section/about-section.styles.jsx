@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const AboutSectionContainer = styled.div`
   color: darkslategrey;
-  border-bottom: 12px solid white;
+  width: 85%;
+  margin: auto;
+
   padding: 36px 28px;
   display: flex;
   flex-direction: column;

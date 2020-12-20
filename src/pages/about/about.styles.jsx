@@ -36,3 +36,8 @@ export const AboutPageContainer = styled.div`
     );
   }
 `;
+
+export const EmptyContainer = styled.div`
+  height: 24px;
+  background-color: white;
+`;

@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+
+import { AppContainer, GlobalStyle } from './global.styles';
 
 import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
@@ -11,18 +13,17 @@ import CheckoutPage from './pages/checkout/checkout.component';
 import ReservationPage from './pages/reservation/reservation.component';
 
 const App = () => {
-  const appContainerSyles = {
-    position: 'relative',
-    minHeight: '100vh',
-    width: '100vw',
-  };
   return (
-    <div style={appContainerSyles}>
+    <AppContainer>
+      <GlobalStyle />
       <Header />
       <div
         style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           paddingBottom: '200px',
-          width: '80%',
+          width: '100%',
           margin: '28px auto',
         }}
       >
@@ -35,7 +36,7 @@ const App = () => {
         </Switch>
       </div>
       <Footer />
-    </div>
+    </AppContainer>
   );
 };
 

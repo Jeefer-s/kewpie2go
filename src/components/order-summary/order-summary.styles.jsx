@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 import CustomButton from '../custom-button/custom-button.component';
 
-export const CheckoutSummaryContainer = styled.div`
+export const OrderSummaryContainer = styled.div`
   display: flex;
   flex-direction: column;
+  min-width: 240px;
   width: 280px;
   margin: 0 24px;
+  padding: 24px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  box-shadow: 3px 4px lightgray;
 `;
 
 export const RowContainer = styled.div`

@@ -1,14 +1,18 @@
 import styled from 'styled-components';
-import CustomButton from '../../custom-button/custom-button.component';
 
 export const CheckoutItemContainer = styled.div`
   display: flex;
   border-bottom: 1px solid lightgray;
   width: 100%;
   padding: 8px;
+  margin-bottom: 8px;
 
   button {
     width: 20%;
+  }
+
+  &:last-child {
+    border-bottom: none;
   }
 `;
 
@@ -70,4 +74,5 @@ export const TotalTextContainer = styled.div`
   font-size: 14px;
   color: gray;
   margin-top: 12px;
+  text-align: end;
 `;

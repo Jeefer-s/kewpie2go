@@ -18,6 +18,21 @@ export const ItemContainer = styled.div`
       display: flex;
     }
   }
+  @media screen and (max-width: 800px) {
+    padding: 4px;
+    width: 240px;
+  }
+
+  @media (hover: none), (hover: on1-demand) {
+    button {
+      display: flex;
+      min-width: unset;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 0;
+  }
 `;
 
 export const ItemInfoContainer = styled.div`

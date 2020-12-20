@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { ReservationPageContainer, RulesContainer } from './reservation.styles';
 
 const ReservationPage = () => (
@@ -7,7 +9,7 @@ const ReservationPage = () => (
     <p>
       Due to new measures of the Dutch government against the COVID-19 pandemic,
       we are forced to close our doors for dining until further notice. Takeaway
-      or delivery is still possible.
+      or delivery is still possible through our <Link to='/shop'>shop</Link>.
     </p>
     See below the new rules for stores:
     <RulesContainer>
