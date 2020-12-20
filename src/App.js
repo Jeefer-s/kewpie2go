@@ -9,16 +9,26 @@ import ShopPage from './pages/shop/shop.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 
 const App = () => {
+  const appContainerSyles = {
+    position: 'relative',
+    minHeight: '100vh',
+  };
   return (
-    <div>
+    <div style={appContainerSyles}>
       <Header />
-      <Switch>
-        <Route exact path='/' component={HomePage} />
-        <Route path='/shop' component={ShopPage} />
-        <Route path='/about' component={HomePage} />
-        <Route path='/contact' component={HomePage} />
-        <Route path='/checkout' component={CheckoutPage} />
-      </Switch>
+      <div
+        style={{
+          paddingBottom: '200px',
+        }}
+      >
+        <Switch>
+          <Route exact path='/' component={HomePage} />
+          <Route path='/shop' component={ShopPage} />
+          <Route path='/about' component={HomePage} />
+          <Route path='/contact' component={HomePage} />
+          <Route path='/checkout' component={CheckoutPage} />
+        </Switch>
+      </div>
       <Footer />
     </div>
   );
