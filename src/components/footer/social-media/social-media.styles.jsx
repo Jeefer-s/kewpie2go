@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SocialMediaContainer = styled.div`
   text-align: center;
-  padding: 12px 8px;
+  padding: 20px;
 `;
 
 export const LogoContainerWrapper = styled.div`

@@ -12,9 +12,9 @@ import {
 const Footer = () => (
   <FooterContainer>
     <FooterWrapper>
-      <Partners />
-      <SocialMedia />
       <Contact />
+      <SocialMedia />
+      <Partners />
     </FooterWrapper>
     <CopyrightContainer>
       Copyright &copy; {new Date().getFullYear()}{' '}

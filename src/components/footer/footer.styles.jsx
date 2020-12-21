@@ -9,6 +9,7 @@ export const FooterContainer = styled.div`
 
 export const FooterWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 `;
 
