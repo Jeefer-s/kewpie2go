@@ -17,6 +17,7 @@ export const LinksContainer = styled.div`
   background-color: white;
   width: 100%;
   position: relative;
+  z-index: 20;
   border: ${(props) => (props.isMenuHidden ? 'none' : '1px solid lightgray')};
   padding: ${(props) => (props.isMenuHidden ? '0' : '36px')};
   margin-top: ${(props) => (props.isMenuHidden ? '0' : '12px')};

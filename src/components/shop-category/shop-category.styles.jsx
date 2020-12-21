@@ -1,21 +1,27 @@
 import styled from 'styled-components';
+import { mediaQueries } from '../../utils/media-queries';
 
 export const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   grid-template-rows: auto;
   background-color: transparent;
   border-radius: 4px;
-  margin: 8px;
+  padding: 10px;
 
-  @media screen and (max-width: 1300px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  ${mediaQueries('md')`
+  grid-template-columns: repeat(2, 1fr);
+  padding: 16px;
+  `}
 
-  @media screen and (max-width: 480px) {
-    display: flex;
-    flex-direction: column;
-  }
+  ${mediaQueries('xl')`
+  grid-template-columns: repeat(3, 1fr);
+
+  `}
+
+${mediaQueries('xxl')`
+  padding: 50px 80px;
+  `}
 `;
 
 export const TitleContainer = styled.div`
@@ -29,17 +35,24 @@ export const TitleContainer = styled.div`
 export const CategoryContainer = styled.div`
   background: whitesmoke;
   width: fit-content;
-  padding: 6px;
-  margin: 3px;
+  padding: 20px;
+  margin-bottom: 3px;
   hr {
     width: 40%;
   }
 
-  @media screen and (max-width: 1300px) {
-    width: 900px;
-  }
+  ${mediaQueries('sm')`
+  padding: 0 36px;
+  margin-bottom: 8px;
+  `}
 
-  @media screen and (max-width: 1300px) {
-    width: 680px;
-  }
+  ${mediaQueries('md')`
+  padding: 10px 40px;
+  margin-bottom: 12px;
+  `}
+
+${mediaQueries('lg')`
+  padding: 20px 60px;
+  margin-bottom: 20px;
+  `}
 `;

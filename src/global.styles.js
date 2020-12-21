@@ -7,11 +7,11 @@ html, body {
 }
 
 body {
-    min-height: 100vh;
     position: relative;
     padding: 10px;
     max-width: 1400px;
     margin: 0 auto;
+    min-height: 100vh;
   
 
 ${mediaQueries('md')`
@@ -66,7 +66,6 @@ padding: 30px 40px;
 
 export const AppContainer = styled.div`
   position: relative;
-  min-height: 100vh;
   width: 100%;
   margin: 0 auto;
 `;
