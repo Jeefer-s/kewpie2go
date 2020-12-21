@@ -15,7 +15,6 @@ export const RowContainer = styled.div`
 export const ImageContainer = styled.div`
   width: 28px;
   height: 28px;
-  margin-left: 20px;
 
   img {
     width: 100%;
