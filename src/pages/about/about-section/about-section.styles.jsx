@@ -1,24 +1,26 @@
 import styled from 'styled-components';
+import { mediaQueries } from '../../../utils/media-queries';
 
 export const AboutSectionContainer = styled.div`
   color: darkslategrey;
-  width: 85%;
-  margin: auto;
-
-  padding: 36px 28px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   background-color: whitesmoke;
 
-  h5 {
-    margin: 16px auto 0 auto;
-    text-align: center;
-    font-style: italic;
-    color: darkgrey;
-  }
-
-  h6 {
-    margin: 8px auto;
-    font-style: italic;
-  }
+  ${mediaQueries('md')`
+    padding: 12px;
+  `}
+  ${mediaQueries('sm')`
+      padding: 14px;
+    `}  
+  ${mediaQueries('lg')`
+      padding: 16px;
+    `}  
+  ${mediaQueries('xl')`
+      padding: 20px;
+    `}  
+  ${mediaQueries('xxl')`
+      padding: 28px;
+    `}
 `;

@@ -1,19 +1,30 @@
 import styled from 'styled-components';
+import { mediaQueries } from '../../../../utils/media-queries';
 
 export const ChefContainer = styled.div`
   text-align: center;
+  margin: 10px auto;
 
   h3 {
-    margin: 12px auto;
+    margin: 4px auto;
+    ${mediaQueries('lg')`
+      margin: 12px auto;
+    `}
   }
 
   img {
-    width: 75%;
+    max-width: 75%;
+    display: block;
   }
+
+  ${mediaQueries('lg')`
+  margin: 24px auto;
+    `}
 `;
 
 export const InfoContainer = styled.div`
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 
   span {
     margin-top: 6px;
@@ -24,7 +35,12 @@ export const InfoContainer = styled.div`
   }
 
   ul {
-    width: 75%;
-    margin: 0 auto;
+    margin: 0;
   }
+
+  ${mediaQueries('lg')`
+      span{
+        text-align: center;
+      }
+    `}
 `;
