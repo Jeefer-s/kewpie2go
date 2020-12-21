@@ -4,9 +4,11 @@ import storage from 'redux-persist/lib/storage';
 
 import cartReducer from '../redux/cart/cart.reducer';
 import shopReducer from '../redux/shop/shop.reducer';
+import headerReducer from '../redux/header/header.reducer';
 
 const rootReducer = combineReducers({
   cart: cartReducer,
+  header: headerReducer,
 });
 
 const persistConfig = {

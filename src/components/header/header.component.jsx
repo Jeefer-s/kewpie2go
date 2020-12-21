@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectMenuHidden } from '../../redux/header/header.selectors';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
+import { setMenuHidden } from '../../redux/header/header.actions';
 
 import { ReactComponent as Logo } from '../../assets/logo/logo.svg';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+import Hamburger from './hamburger/hamburger.component';
 
 import {
   HeaderContainer,
@@ -15,22 +18,45 @@ import {
 } from './header.styles';
 
 const Header = () => {
-  const hidden = useSelector(selectCartHidden);
+  const dispatch = useDispatch();
+  const cartHidden = useSelector(selectCartHidden);
+  const isMenuHidden = useSelector(selectMenuHidden);
+
+  const closeMenu = () => {
+    if (!isMenuHidden) {
+      dispatch(setMenuHidden());
+    }
+  };
 
   return (
     <HeaderContainer>
-      <LinksContainer>
-        <LogoContainer>
-          <Link to='/'>
-            <Logo />
-          </Link>
-        </LogoContainer>
-        <StyledLink to='/shop'>SHOP</StyledLink>
-        <StyledLink to='/about'>ABOUT</StyledLink>
-        <StyledLink to='/reservation'>RESERVATION</StyledLink>
-        <CartIcon />
+      <Hamburger />
+      <LinksContainer isMenuHidden={isMenuHidden}>
+        {!isMenuHidden ? (
+          <StyledLink onClick={closeMenu} to='/'>
+            HOME
+          </StyledLink>
+        ) : (
+          <LogoContainer>
+            <Link to='/'>
+              <Logo />
+            </Link>
+          </LogoContainer>
+        )}
+
+        <StyledLink onClick={closeMenu} to='/shop'>
+          SHOP
+        </StyledLink>
+        <StyledLink onClick={closeMenu} to='/about'>
+          ABOUT
+        </StyledLink>
+        <StyledLink onClick={closeMenu} to='/reservation'>
+          RESERVATION
+        </StyledLink>
       </LinksContainer>
-      {hidden ? null : <CartDropdown />}
+      <CartIcon />
+
+      {cartHidden ? null : <CartDropdown />}
     </HeaderContainer>
   );
 };

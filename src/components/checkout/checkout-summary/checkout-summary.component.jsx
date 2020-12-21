@@ -25,7 +25,9 @@ const CheckoutSummary = () => {
           </TextContainer>
         </div>
       ) : (
-        cartItems.map((cartItem) => <CheckoutItem checkoutItem={cartItem} />)
+        cartItems.map((cartItem) => (
+          <CheckoutItem checkoutItem={cartItem} key={cartItem.id} />
+        ))
       )}
     </CheckoutSummaryContainer>
   );

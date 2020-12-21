@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { mediaQueries } from '../../utils/media-queries';
 
 import { ReactComponent as ShoppingCart } from '../../assets/logo/shopping-cart.svg';
 
@@ -15,6 +16,12 @@ export const CartContainer = styled.div`
   cursor: pointer;
   position: relative;
   display: flex;
+
+  ${mediaQueries('md')} {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 `;
 
 export const ItemCountContainer = styled.span`

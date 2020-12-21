@@ -11,12 +11,38 @@ export const StyledLink = styled(Link)`
 `;
 
 export const LinksContainer = styled.div`
-  height: 100%;
+  margin-right: 40px;
+  display: ${(props) => (props.isMenuHidden ? 'none' : 'flex')};
+  flex-direction: column;
   width: 100%;
+  position: relative;
+  border: ${(props) => (props.isMenuHidden ? 'none' : '1px solid lightgray')};
+  padding: ${(props) => (props.isMenuHidden ? '0' : '36px')};
+  margin-top: ${(props) => (props.isMenuHidden ? '0' : '12px')};
+  text-align: ${(props) => (props.isMenuHidden ? '' : 'center')};
+
+  border-radius: 8px;
+  box-shadow: 2px 4px rgba(85, 85, 85, 0.4);
+
+  a {
+    margin: 16px 0;
+  }
+
+  ${mediaQueries('md')`
+  background-color: white;
+  height: 100%;
+  position: relative;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-end;
   padding: 0;
+  border: unset;
+  box-shadow: unset;
+  a{
+    padding-left: unset;
+  }
+    `};
 `;
 
 export const LogoContainer = styled.div`
@@ -29,16 +55,18 @@ export const LogoContainer = styled.div`
 `;
 
 export const HeaderContainer = styled.div`
-  height: 60px;
+  padding: 4px;
+  height: 50px;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin: 8px;
-
-  ${mediaQueries('lg')`
-    height: 60px;
+  ${mediaQueries('md')`
     padding: 10px;
     margin-bottom: 12px;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px;
     `}
 `;
