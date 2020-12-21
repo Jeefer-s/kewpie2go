@@ -14,6 +14,7 @@ export const LinksContainer = styled.div`
   margin-right: 40px;
   display: ${(props) => (props.isMenuHidden ? 'none' : 'flex')};
   flex-direction: column;
+  background-color: white;
   width: 100%;
   position: relative;
   border: ${(props) => (props.isMenuHidden ? 'none' : '1px solid lightgray')};

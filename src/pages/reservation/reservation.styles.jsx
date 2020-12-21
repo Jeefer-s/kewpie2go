@@ -1,24 +1,36 @@
 import styled from 'styled-components';
+import { mediaQueries } from '../../utils/media-queries';
 
 export const ReservationPageContainer = styled.div`
-  width: 80%;
   align-self: center;
-  padding: 20px 80px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  margin: 10px 16px;
   justify-content: center;
+  align-items: center;
   background: whitesmoke;
   color: darkslategrey;
   h2 {
     align-self: center;
   }
+
+  ${mediaQueries('md')`
+    padding: 14px;
+  `}
+
+  ${mediaQueries('lg')`
+    padding: 24px 40px;
+  `}
+
+  ${mediaQueries('xl')`
+    padding: 40px 80px;
+  `}
 `;
 
 export const RulesContainer = styled.div`
   margin: 24px auto;
   background-color: white;
-  width: 70%;
+  width: 90%;
   border-radius: 12px;
   padding: 8px;
 
@@ -30,4 +42,8 @@ export const RulesContainer = styled.div`
   span {
     font-size: smaller;
   }
+
+  ${mediaQueries('lg')`
+    width: 75%;
+  `}
 `;
