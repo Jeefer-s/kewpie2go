@@ -16,7 +16,8 @@ import {
 
 const ShopItem = ({ shopItem }) => {
   const { id, name, price, description } = shopItem;
-  const imgUrl = (id) => `/images/shop-items/${id}.png`;
+  const imgName = name.toLowerCase().split(' ').join('-');
+  const imgUrl = () => `/images/shop-items/${imgName}.png`;
 
   const dispatch = useDispatch();
 

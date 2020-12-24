@@ -9,6 +9,7 @@ import headerReducer from '../redux/header/header.reducer';
 const rootReducer = combineReducers({
   cart: cartReducer,
   header: headerReducer,
+  shop: shopReducer,
 });
 
 const persistConfig = {
