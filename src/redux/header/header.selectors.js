@@ -6,3 +6,8 @@ export const selectMenuHidden = createSelector(
   [selectHeader],
   (header) => header.isMenuHidden
 );
+
+export const selectLoginHidden = createSelector(
+  [selectHeader],
+  (header) => header.isLoginHidden
+);

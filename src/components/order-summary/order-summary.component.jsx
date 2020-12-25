@@ -10,6 +10,7 @@ import {
   TotalRowContainer,
   Divider,
   OrderButton,
+  SignInButton,
 } from './order-summary.styles';
 
 const CheckoutSummary = () => {
@@ -46,6 +47,7 @@ const CheckoutSummary = () => {
         <ValueContainer>€113</ValueContainer>
       </TotalRowContainer>
       <OrderButton inverted>Place order</OrderButton>
+      <SignInButton inverted>Sign in & Pay</SignInButton>
     </OrderSummaryContainer>
   );
 };

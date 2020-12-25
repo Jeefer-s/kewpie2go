@@ -1,0 +1,8 @@
+const UserActionTypes = {
+  LOG_IN_START: 'SIGN_IN_START',
+  LOG_IN_SUCCESS: 'SIGN_IN_SUCCESS',
+  REGISTER_START: 'REGISTER_SUCCESS',
+  SET_CURRENT_USER: 'SET_CURRENT_USER',
+};
+
+export default UserActionTypes;

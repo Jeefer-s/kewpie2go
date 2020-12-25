@@ -45,6 +45,11 @@ export const OrderButton = styled(CustomButton)`
   text-transform: uppercase;
   background-color: green;
   &:hover {
-    background-color: greenyellow;
+    background-color: #0e5220;
   }
+`;
+
+export const SignInButton = styled(CustomButton)`
+  margin-top: 12px;
+  width: 100%;
 `;

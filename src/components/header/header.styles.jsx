@@ -1,13 +1,24 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { mediaQueries } from '../../utils/media-queries';
 
-export const StyledLink = styled(Link)`
-  padding: 10px 16px;
+const linkStyles = css`
+  padding: 10px 8px;
   color: darkgrey;
   letter-spacing: 3px;
   font-size: 16px;
   cursor: pointer;
+`;
+
+export const StyledLink = styled(Link)`
+  ${linkStyles}
+`;
+
+export const LoginContainer = styled.div`
+  ${linkStyles}
+  padding-left: 0;
+  width: fit-content;
+  text-decoration: underline;
 `;
 
 export const LinksContainer = styled.div`

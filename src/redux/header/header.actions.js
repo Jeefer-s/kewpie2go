@@ -7,3 +7,11 @@ export const toggleMenuHidden = () => ({
 export const setMenuHidden = () => ({
   type: HeaderActionTypes.SET_MENU_HIDDEN,
 });
+
+export const toggleLoginHidden = () => ({
+  type: HeaderActionTypes.TOGGLE_LOGIN_HIDDEN,
+});
+
+export const setLoginHidden = () => ({
+  type: HeaderActionTypes.SET_LOGIN_HIDDEN,
+});

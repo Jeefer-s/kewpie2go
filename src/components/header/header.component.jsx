@@ -1,31 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectMenuHidden } from '../../redux/header/header.selectors';
+import {
+  selectMenuHidden,
+  selectLoginHidden,
+} from '../../redux/header/header.selectors';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
-import { setMenuHidden } from '../../redux/header/header.actions';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+
+import {
+  setMenuHidden,
+  toggleLoginHidden,
+} from '../../redux/header/header.actions';
 
 import { ReactComponent as Logo } from '../../assets/logo/logo.svg';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import Hamburger from './hamburger/hamburger.component';
+import LoginDropdown from '../login-dropdown/login-dropdown.component';
 
 import {
   HeaderContainer,
   LogoContainer,
   LinksContainer,
   StyledLink,
+  LoginContainer,
 } from './header.styles';
 
 const Header = () => {
   const dispatch = useDispatch();
   const cartHidden = useSelector(selectCartHidden);
   const isMenuHidden = useSelector(selectMenuHidden);
+  const isLoginHidden = useSelector(selectLoginHidden);
+  const currentUser = useSelector(selectCurrentUser);
 
-  const closeMenu = () => {
-    if (!isMenuHidden) {
-      dispatch(setMenuHidden());
-    }
+  const toggleLogin = () => {
+    dispatch(toggleLoginHidden());
+    dispatch(setMenuHidden());
   };
 
   return (
@@ -33,9 +44,7 @@ const Header = () => {
       <Hamburger />
       <LinksContainer isMenuHidden={isMenuHidden}>
         {!isMenuHidden ? (
-          <StyledLink onClick={closeMenu} to='/'>
-            HOME
-          </StyledLink>
+          <StyledLink to='/'>HOME</StyledLink>
         ) : (
           <LogoContainer>
             <Link to='/'>
@@ -44,19 +53,16 @@ const Header = () => {
           </LogoContainer>
         )}
 
-        <StyledLink onClick={closeMenu} to='/shop'>
-          SHOP
-        </StyledLink>
-        <StyledLink onClick={closeMenu} to='/about'>
-          ABOUT
-        </StyledLink>
-        <StyledLink onClick={closeMenu} to='/reservation'>
-          RESERVATION
-        </StyledLink>
+        <StyledLink to='/shop'>SHOP</StyledLink>
+        <StyledLink to='/about'>ABOUT</StyledLink>
+        <StyledLink to='/reservation'>RESERVATION</StyledLink>
+        <LoginContainer onClick={toggleLogin} to='/about'>
+          LOGIN
+        </LoginContainer>
       </LinksContainer>
       <CartIcon />
-
       {cartHidden ? null : <CartDropdown />}
+      {isLoginHidden ? null : <LoginDropdown />}
     </HeaderContainer>
   );
 };
