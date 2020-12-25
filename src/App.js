@@ -12,6 +12,7 @@ import AboutPage from './pages/about/about.component';
 import ShopPage from './pages/shop/shop.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 import ReservationPage from './pages/reservation/reservation.component';
+import RegisterPage from './pages/register/register.component';
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
           <Route path='/about' component={AboutPage} />
           <Route path='/reservation' component={ReservationPage} />
           <Route path='/checkout' component={CheckoutPage} />
+          <Route path='/register' component={RegisterPage} />
         </Switch>
       </div>
       <Footer />

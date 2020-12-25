@@ -36,7 +36,7 @@ export const CategoryContainer = styled.div`
   background: whitesmoke;
   width: fit-content;
   padding: 20px;
-  margin-bottom: 3px;
+  margin: 12px auto;
   hr {
     width: 40%;
   }

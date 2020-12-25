@@ -1,5 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { getImageUrl } from '../../../utils/image-url';
+
 import {
   addItemToCart,
   removeItemFromCart,
@@ -20,12 +22,10 @@ const CheckoutItem = ({ checkoutItem }) => {
   const dispatch = useDispatch();
   const { name, id, price, quantity } = checkoutItem;
 
-  const imgUrl = (id) => `/images/shop-items/${id}.png`;
-
   return (
     <CheckoutItemContainer>
       <ImageContainer>
-        <img alt='' src={imgUrl(id)} />
+        <img alt='' src={getImageUrl(name)} />
       </ImageContainer>
       <CheckoutItemInfoContainer>
         <TextContainer>{name}</TextContainer>

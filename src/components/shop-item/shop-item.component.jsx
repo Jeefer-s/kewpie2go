@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { getImageUrl } from '../../utils/image-url';
 
 import { addItemToCart } from '../../redux/cart/cart.actions';
 
@@ -15,16 +16,14 @@ import {
 } from './shop-item.styles';
 
 const ShopItem = ({ shopItem }) => {
-  const { id, name, price, description } = shopItem;
-  const imgName = name.toLowerCase().split(' ').join('-');
-  const imgUrl = () => `/images/shop-items/${imgName}.png`;
+  const { name, price, description } = shopItem;
 
   const dispatch = useDispatch();
 
   return (
     <ItemContainer>
       <ItemImageContainer>
-        <ItemImage className='bg-image' src={imgUrl(id)} />
+        <ItemImage className='bg-image' src={getImageUrl(name)} />
       </ItemImageContainer>
       <ItemInfoContainer>
         <ItemName>{name}</ItemName>

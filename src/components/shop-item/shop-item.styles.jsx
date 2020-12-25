@@ -5,7 +5,7 @@ export const ItemContainer = styled.div`
   padding: 8px;
   position: relative;
   display: flex;
-  margin: 4px;
+  margin: 12px;
   flex-direction: column;
   width: 320px;
   height: 360px;
