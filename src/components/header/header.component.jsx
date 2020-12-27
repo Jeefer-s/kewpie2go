@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   selectMenuHidden,
   selectLoginHidden,
+  selectUserDropdownHidden,
 } from '../../redux/header/header.selectors';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
@@ -11,9 +12,12 @@ import { selectCurrentUser } from '../../redux/user/user.selectors';
 import {
   setMenuHidden,
   toggleLoginHidden,
+  toggleUserDropdownHidden,
 } from '../../redux/header/header.actions';
+import { logoutStartAsync } from '../../redux/user/user.actions';
 
 import { ReactComponent as Logo } from '../../assets/logo/logo.svg';
+import { ReactComponent as DropdownIcon } from '../../assets/icons/ic_dropdown.svg';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import Hamburger from './hamburger/hamburger.component';
@@ -27,6 +31,9 @@ import {
   StyledLink,
   CurrentUserContainer,
   LoginContainer,
+  UserOption,
+  CurrentUserGreetingContainer,
+  CurrentUserOptionsContainer,
 } from './header.styles';
 
 const Header = () => {
@@ -34,6 +41,7 @@ const Header = () => {
   const cartHidden = useSelector(selectCartHidden);
   const isMenuHidden = useSelector(selectMenuHidden);
   const isLoginHidden = useSelector(selectLoginHidden);
+  const isUserDropdownHidden = useSelector(selectUserDropdownHidden);
   const currentUser = useSelector(selectCurrentUser);
 
   const toggleLogin = () => {
@@ -60,11 +68,27 @@ const Header = () => {
         <StyledLink to='/reservation'>RESERVATION</StyledLink>
 
         {currentUser ? (
-          <CurrentUserContainer>
-            <span>Welcome back,</span>
-            <span>
-              {currentUser.firstName} {currentUser.lastName}
-            </span>
+          <CurrentUserContainer
+            onClick={() => dispatch(toggleUserDropdownHidden())}
+          >
+            <div style={{ display: 'flex' }}>
+              <CurrentUserGreetingContainer>
+                {' '}
+                <span>Welcome back,</span>
+                <span>
+                  {currentUser.firstName} {currentUser.lastName}
+                </span>
+              </CurrentUserGreetingContainer>
+              <DropdownIcon />
+            </div>
+            {isUserDropdownHidden ? null : (
+              <CurrentUserOptionsContainer>
+                <UserOption>Settings</UserOption>
+                <UserOption onClick={() => dispatch(logoutStartAsync())}>
+                  Logout
+                </UserOption>
+              </CurrentUserOptionsContainer>
+            )}
           </CurrentUserContainer>
         ) : (
           <LoginContainer onClick={toggleLogin} to='/about'>
@@ -75,7 +99,7 @@ const Header = () => {
       <CartIcon />
       {cartHidden ? null : <CartDropdown />}
       {isLoginHidden || currentUser ? null : <LoginDropdown />}
-      <UserDropdown />
+      {isUserDropdownHidden ? null : <UserDropdown />}
     </HeaderContainer>
   );
 };

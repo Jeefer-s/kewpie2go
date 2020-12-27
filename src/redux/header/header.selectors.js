@@ -11,3 +11,8 @@ export const selectLoginHidden = createSelector(
   [selectHeader],
   (header) => header.isLoginHidden
 );
+
+export const selectUserDropdownHidden = createSelector(
+  [selectHeader],
+  (header) => header.isUserDropdownHidden
+);

@@ -1,6 +1,8 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import Divider from '../divider/divider.component';
+import { logoutStartAsync } from '../../redux/user/user.actions';
 import {
   UserDropdownContainer,
   LinkContainer,
@@ -8,6 +10,7 @@ import {
 } from './user-dropdown.styles';
 
 const UserDropdown = () => {
+  const dispatch = useDispatch();
   return (
     <UserDropdownContainer>
       <LinkContainer>
@@ -15,7 +18,7 @@ const UserDropdown = () => {
       </LinkContainer>
       <Divider />
       <LinkContainer>
-        <Link>Logout</Link>
+        <Link onClick={() => dispatch(logoutStartAsync())}>Logout</Link>
       </LinkContainer>
     </UserDropdownContainer>
   );

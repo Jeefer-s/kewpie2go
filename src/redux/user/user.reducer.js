@@ -22,6 +22,8 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return { ...state, isLoading: false };
     case UserActionTypes.SET_CURRENT_USER:
       return { ...state, currentUser: action.payload, error: null };
+    case UserActionTypes.LOG_OUT_SUCCESS:
+      return { ...state, currentUser: null, isLoading: false };
     default:
       return state;
   }

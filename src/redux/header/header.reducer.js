@@ -3,6 +3,7 @@ import HeaderActionTypes from './header.types';
 const INITIAL_STATE = {
   isMenuHidden: true,
   isLoginHidden: true,
+  isUserDropdownHidden: true,
 };
 
 const headerReducer = (state = INITIAL_STATE, action) => {
@@ -22,6 +23,10 @@ const headerReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isLoginHidden: !state.isLoginHidden,
       };
+    case HeaderActionTypes.TOGGLE_USER_HIDDEN:
+      return { ...state, isUserDropdownHidden: !state.isUserDropdownHidden };
+    case HeaderActionTypes.SET_USER_HIDDEN:
+      return { ...state, isUserDropdownHidden: true };
     default:
       return state;
   }

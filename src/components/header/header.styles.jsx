@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { mediaQueries } from '../../utils/media-queries';
+import { LinkContainer } from '../user-dropdown/user-dropdown.styles';
 
 const linkStyles = css`
-  padding: 10px 8px;
   color: darkgrey;
   letter-spacing: 3px;
   font-size: 16px;
@@ -11,14 +11,21 @@ const linkStyles = css`
 `;
 
 export const StyledLink = styled(Link)`
+  padding: 10px 8px;
   ${linkStyles}
 `;
 
 export const LoginContainer = styled.div`
   ${linkStyles}
-  padding-left: 0;
   width: fit-content;
   text-decoration: underline;
+  margin: 16px auto;
+  padding: 10px 0;
+  ${mediaQueries('md')`
+  width: 75px;
+  padding-left: 0;
+  margin: 0;
+    `}
 `;
 
 export const LinksContainer = styled.div`
@@ -84,10 +91,64 @@ export const HeaderContainer = styled.div`
     `}
 `;
 
+export const VerticalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const CurrentUserContainer = styled.div`
+  ${linkStyles}
+  margin: 0 auto;
+  width: fit-content;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  text-align: center;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    align-self: center;
+    justify-self: center;
+  }
+
+  ${mediaQueries('md')`
+    margin: 0;
+    svg{
+      margin-right: 4px;
+    }
+  `}
+`;
+
+export const CurrentUserGreetingContainer = styled.div`
   ${linkStyles}
   letter-spacing: 1px;
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 100%;
+`;
+
+export const CurrentUserOptionsContainer = styled.div`
+  color: #5e5e5e;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 14px;
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    margin: 8px 0;
+    line-height: 1.5rem;
+  }
+
+  ${mediaQueries('md')`
+   display: none;
+  `}
+`;
+
+export const UserOption = styled.a`
+  display: inline-block;
 `;

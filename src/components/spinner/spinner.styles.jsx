@@ -23,7 +23,7 @@ export const SpinnerContainer = styled.div`
     margin: 8px;
     border-radius: 50%;
     animation: 1.2s ${fade} linear infinite;
-    border: 6px solid darkslategray;
-    border-color: darkslategray transparent darkslategray transparent;
+    border: 6px solid lightgray;
+    border-color: lightgray transparent lightgray transparent;
   }
 `;

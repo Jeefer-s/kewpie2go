@@ -35,7 +35,7 @@ export const TitleContainer = styled.div`
 export const CategoryContainer = styled.div`
   background: whitesmoke;
   width: fit-content;
-  padding: 20px;
+  padding: 0px;
   margin: 12px auto;
   hr {
     width: 40%;

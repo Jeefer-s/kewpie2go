@@ -15,3 +15,11 @@ export const toggleLoginHidden = () => ({
 export const setLoginHidden = () => ({
   type: HeaderActionTypes.SET_LOGIN_HIDDEN,
 });
+
+export const toggleUserDropdownHidden = () => ({
+  type: HeaderActionTypes.TOGGLE_USER_HIDDEN,
+});
+
+export const setUserDropdownHidden = () => ({
+  type: HeaderActionTypes.SET_USER_HIDDEN,
+});
