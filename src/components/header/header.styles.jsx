@@ -83,3 +83,11 @@ export const HeaderContainer = styled.div`
     margin: 8px;
     `}
 `;
+
+export const CurrentUserContainer = styled.div`
+  ${linkStyles}
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+`;

@@ -1,9 +1,6 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  input[type='password'] {
-    letter-spacing: 4px;
-  }
   padding: 8px;
 `;
 

@@ -18,12 +18,14 @@ import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import Hamburger from './hamburger/hamburger.component';
 import LoginDropdown from '../login-dropdown/login-dropdown.component';
+import UserDropdown from '../user-dropdown/user-dropdown.component';
 
 import {
   HeaderContainer,
   LogoContainer,
   LinksContainer,
   StyledLink,
+  CurrentUserContainer,
   LoginContainer,
 } from './header.styles';
 
@@ -56,13 +58,24 @@ const Header = () => {
         <StyledLink to='/shop'>SHOP</StyledLink>
         <StyledLink to='/about'>ABOUT</StyledLink>
         <StyledLink to='/reservation'>RESERVATION</StyledLink>
-        <LoginContainer onClick={toggleLogin} to='/about'>
-          LOGIN
-        </LoginContainer>
+
+        {currentUser ? (
+          <CurrentUserContainer>
+            <span>Welcome back,</span>
+            <span>
+              {currentUser.firstName} {currentUser.lastName}
+            </span>
+          </CurrentUserContainer>
+        ) : (
+          <LoginContainer onClick={toggleLogin} to='/about'>
+            LOGIN
+          </LoginContainer>
+        )}
       </LinksContainer>
       <CartIcon />
       {cartHidden ? null : <CartDropdown />}
-      {isLoginHidden ? null : <LoginDropdown />}
+      {isLoginHidden || currentUser ? null : <LoginDropdown />}
+      <UserDropdown />
     </HeaderContainer>
   );
 };

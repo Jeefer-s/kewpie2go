@@ -7,7 +7,9 @@ const FormInput = ({ label, ...props }) => {
     <Container>
       <LabelContainer>
         <Input {...props} />
-        <Label className={props.value.length ? 'shrink' : ''}>{label}</Label>
+        <Label className={props.value.length === 0 ? '' : 'shrink'}>
+          {label}
+        </Label>
       </LabelContainer>
     </Container>
   );

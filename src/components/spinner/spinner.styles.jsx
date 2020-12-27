@@ -11,15 +11,15 @@ const fade = keyframes`
 
 export const SpinnerContainer = styled.div`
   display: block;
-  width: 100px;
-  height: 100px;
-  margin: 20vh auto;
+  width: 80px;
+  height: 80px;
+  margin: auto;
 
   &:after {
     content: '';
     display: block;
-    height: 80px;
-    width: 80px;
+    height: 64px;
+    width: 64px;
     margin: 8px;
     border-radius: 50%;
     animation: 1.2s ${fade} linear infinite;

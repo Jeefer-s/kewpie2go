@@ -4,11 +4,17 @@ export const ButtonContainer = styled.button`
   display: flex;
   justify-content: center;
   letter-spacing: 1px;
+  outline: none;
+  height: 36px;
   min-width: 120px;
   line-height: 2rem;
   text-transform: uppercase;
   cursor: pointer;
   ${(props) => (props.inverted ? invertedBtnStyles : defaultBtnStyles)}
+  &:active {
+    transform: translateY(2px);
+    border: none;
+  }
 `;
 
 const defaultBtnStyles = css`

@@ -13,7 +13,7 @@ export const LoginContainer = styled.div`
   top: 100px;
 
   form {
-    width: 85%;
+    width: 80%;
   }
 
   z-index: 5;
@@ -41,4 +41,8 @@ export const LoginButton = styled(CustomButton)`
 export const CancelButton = styled(CustomButton)`
   margin: 16px auto 12px auto;
   width: 100%;
+`;
+
+export const ErrorMessage = styled.span`
+  color: darkred;
 `;
