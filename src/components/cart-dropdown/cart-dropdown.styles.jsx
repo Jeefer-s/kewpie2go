@@ -4,8 +4,8 @@ import { mediaQueries } from '../../utils/media-queries';
 import CustomButton from '../custom-button/custom-button.component';
 
 export const CartContainer = styled.div`
-  padding: 20px;
-  width: 280px;
+  padding: 12px;
+  width: 220px;
   display: flex;
   text-align: center;
   flex-direction: column;
@@ -17,6 +17,10 @@ export const CartContainer = styled.div`
   border-radius: 8px;
   box-shadow: 2px 4px rgba(85, 85, 85, 0.4);
   border: 1px solid lightgray;
+
+  ${mediaQueries('md')`
+    width: 300px;
+  `}
 
   ${mediaQueries('lg')`
     width: 360px;
