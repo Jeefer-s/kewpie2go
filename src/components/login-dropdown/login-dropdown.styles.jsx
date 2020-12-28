@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { mediaQueries } from '../../utils/media-queries';
 import CustomButton from '../custom-button/custom-button.component';
 
@@ -13,7 +14,11 @@ export const LoginContainer = styled.div`
   top: 100px;
 
   form {
-    width: 80%;
+    width: 90%;
+    margin: 0 auto;
+    input {
+      width: 100%;
+    }
   }
 
   z-index: 5;
@@ -45,4 +50,17 @@ export const CancelButton = styled(CustomButton)`
 
 export const ErrorMessage = styled.span`
   color: darkred;
+`;
+
+export const RegisterContainer = styled.div`
+  margin-top: 16px;
+  color: darkgrey;
+  width: 100%;
+  a {
+    text-decoration: none;
+  }
+`;
+
+export const RegisterButton = styled(CustomButton)`
+  margin: 8px auto;
 `;

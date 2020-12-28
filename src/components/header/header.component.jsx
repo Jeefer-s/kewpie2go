@@ -83,7 +83,9 @@ const Header = () => {
             </div>
             {isUserDropdownHidden ? null : (
               <CurrentUserOptionsContainer>
-                <UserOption>Settings</UserOption>
+                <UserOption>
+                  <Link to='/settings'>Settings</Link>
+                </UserOption>
                 <UserOption onClick={() => dispatch(logoutStartAsync())}>
                   Logout
                 </UserOption>

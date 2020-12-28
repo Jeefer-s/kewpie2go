@@ -1,5 +1,6 @@
 import UserActionTypes from './user.types';
-import { login, logout } from '../../services/authentication-service';
+
+import { logout } from '../../services/authentication-service';
 import {
   setUserDropdownHidden,
   setLoginHidden,
@@ -8,22 +9,6 @@ import {
 export const loginStart = () => ({
   type: UserActionTypes.LOG_IN_START,
 });
-
-export const loginStartAsync = (credentials) => {
-  return async (dispatch) => {
-    dispatch(loginStart());
-    await login(credentials)
-      .then((response) => {
-        console.log(response);
-        dispatch(loginSuccess());
-        dispatch(setCurrentUser(response));
-      })
-      .catch((e) => {
-        console.log(e.message);
-        dispatch(loginFailure('Your username/password is incorrect'));
-      });
-  };
-};
 
 export const loginSuccess = () => ({
   type: UserActionTypes.LOG_IN_SUCCESS,

@@ -149,6 +149,9 @@ export const CurrentUserOptionsContainer = styled.div`
   `}
 `;
 
-export const UserOption = styled.a`
+export const UserOption = styled.div`
   display: inline-block;
+  a {
+    text-decoration: none;
+  }
 `;

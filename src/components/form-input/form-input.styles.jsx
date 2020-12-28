@@ -2,6 +2,10 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 `;
 
 const shrinkStyles = css`
@@ -13,15 +17,18 @@ const shrinkStyles = css`
 `;
 
 export const LabelContainer = styled.label`
+  display: flex;
+  align-items: center;
   position: relative;
   font-size: 14px;
+  width: 100%;
+  margin: 0 auto;
 `;
 
 export const Input = styled.input`
   border: 1px solid darkgray;
   padding: 12px;
   border-radius: 3px;
-  width: 100%;
   outline: none;
   font-size: 14px;
   color: #303030;

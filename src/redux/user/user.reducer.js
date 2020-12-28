@@ -3,7 +3,6 @@ import UserActionTypes from './user.types';
 const INITIAL_STATE = {
   currentUser: null,
   error: null,
-  shippingAddress: null,
   orderHistory: [],
   isLoading: false,
 };
@@ -23,7 +22,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
     case UserActionTypes.SET_CURRENT_USER:
       return { ...state, currentUser: action.payload, error: null };
     case UserActionTypes.LOG_OUT_SUCCESS:
-      return { ...state, currentUser: null, isLoading: false };
+      return INITIAL_STATE;
     default:
       return state;
   }

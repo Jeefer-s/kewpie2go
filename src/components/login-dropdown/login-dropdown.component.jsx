@@ -1,6 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { setLoginHidden } from '../../redux/header/header.actions';
-import { loginStartAsync } from '../../redux/user/user.actions';
+import {
+  loginSuccess,
+  loginStart,
+  setCurrentUser,
+  loginFailure,
+} from '../../redux/user/user.actions';
+import { login } from '../../services/authentication-service';
 import { selectError, selectIsLoading } from '../../redux/user/user.selectors';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react/cjs/react.development';
@@ -9,8 +16,10 @@ import Spinner from '../spinner/spinner.component';
 import {
   LoginContainer,
   LoginButton,
+  RegisterContainer,
   CancelButton,
   ErrorMessage,
+  RegisterButton,
 } from './login-dropdown.styles';
 
 const LoginDropdown = () => {
@@ -33,6 +42,22 @@ const LoginDropdown = () => {
     e.preventDefault();
 
     dispatch(loginStartAsync(userCredentials));
+  };
+
+  const loginStartAsync = (credentials) => {
+    return async (dispatch) => {
+      dispatch(loginStart());
+      await login(credentials)
+        .then((response) => {
+          console.log(response);
+          dispatch(loginSuccess());
+          dispatch(setCurrentUser(response));
+        })
+        .catch((e) => {
+          console.log(e.message);
+          dispatch(loginFailure('Your username/password is incorrect'));
+        });
+    };
   };
 
   return (
@@ -59,6 +84,12 @@ const LoginDropdown = () => {
           Cancel
         </CancelButton>
       </form>
+      <RegisterContainer>
+        Don't have an account yet?
+        <RegisterButton>
+          <Link to='/register'>Register</Link>
+        </RegisterButton>
+      </RegisterContainer>
     </LoginContainer>
   );
 };

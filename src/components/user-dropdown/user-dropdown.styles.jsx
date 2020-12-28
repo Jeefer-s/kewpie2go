@@ -27,14 +27,16 @@ export const UserDropdownContainer = styled.div`
 `;
 
 export const LinkContainer = styled.div`
-  color: #5e5e5e;
   font-size: 14px;
   margin: 8px 0;
-
   a {
+    color: #5e5e5e;
     text-decoration: none;
-    cursor: pointer;
   }
 `;
 
-export const Link = styled.a``;
+export const StyledLink = styled.div`
+  text-decoration: none;
+  cursor: pointer;
+  color: #5e5e5e;
+`;

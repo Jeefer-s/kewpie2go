@@ -10,17 +10,22 @@ const fade = keyframes`
 `;
 
 export const SpinnerContainer = styled.div`
-  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%) (-50%);
+`;
+export const StyledSpinner = styled.div`
+  display: flex;
   width: 80px;
   height: 80px;
   margin: auto;
 
   &:after {
     content: '';
-    display: block;
+    display: flex;
     height: 64px;
     width: 64px;
-    margin: 8px;
     border-radius: 50%;
     animation: 1.2s ${fade} linear infinite;
     border: 6px solid lightgray;
