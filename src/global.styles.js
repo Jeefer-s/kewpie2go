@@ -29,6 +29,7 @@ padding: 30px 40px;
 
 #root{
   margin: 0 auto;
+  padding: 10px;
 }
 
 

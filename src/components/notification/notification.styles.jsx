@@ -9,6 +9,7 @@ const successStyles = css`
 
 export const NotificationContainer = styled.div`
   margin-bottom: 20px;
+  text-align: center;
   color: darkgrey;
   ${(props) => (props.error ? errorStyles : '')}
   ${(props) => (props.success ? successStyles : '')}

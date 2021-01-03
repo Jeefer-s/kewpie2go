@@ -4,10 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import {
   SettingsContainer,
-  SuccessContainer,
+  ButtonContainer,
   SaveButton,
   CancelButton,
 } from './settings.styles';
+import FormAddress from '../../components/form-address/form-address.component';
 import FormInput from '../../components/form-input/form-input.component';
 import Spinner from '../../components/spinner/spinner.component';
 import Notification from '../../components/notification/notification.component';
@@ -19,23 +20,12 @@ import {
 const SettingsPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { firstName, lastName, address, email } = useSelector(
-    selectCurrentUser
-  );
+
+  const { email } = useSelector(selectCurrentUser);
 
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
-  const [userProfile, setUserProfile] = useState({
-    firstName: firstName,
-    lastName: lastName,
-    addressLine: address ? address.addressLine : '',
-    postalCode: address ? address.postalCode : '',
-    city: address ? address.city : '',
-  });
-
-  const { addressLine, postalCode, city } = userProfile;
 
   const [changePassword, setChangePassword] = useState({
     oldPassword: '',
@@ -45,26 +35,20 @@ const SettingsPage = () => {
 
   const { oldPassword, newPassword, confirmPassword } = changePassword;
 
-  const handleProfileChange = (e) => {
-    const { name, value } = e.target;
-    setUserProfile({ ...userProfile, [name]: value });
-  };
-
   const handlePasswordChange = (e) => {
     const { name, value } = e.target;
     setChangePassword({ ...changePassword, [name]: value });
   };
 
-  const handleSubmitProfile = async (e) => {
-    e.preventDefault();
+  const handleSubmitProfile = async (profile) => {
+    console.log('handleSubmitProfile called');
     setIsLoading(true);
-    const address = { addressLine, postalCode, city };
-    console.log({ firstName, lastName, email, address });
-    await updateProfile({ firstName, lastName, email, address })
+
+    await updateProfile(profile)
       .then((response) => {
         setSuccessMessage('Your profile has been updated.');
         setErrorMessage('');
-        console.log(response);
+        console.log('response', response);
       })
       .catch((error) => {
         setErrorMessage(error.message);
@@ -109,53 +93,13 @@ const SettingsPage = () => {
       <Notification message={successMessage} success />
 
       <h3>Update profile</h3>
-
-      <form onSubmit={handleSubmitProfile}>
-        <FormInput
-          type='text'
-          name='firstName'
-          label='First name'
-          onChange={handleProfileChange}
-          value={firstName}
-        />
-        <FormInput
-          type='text'
-          name='lastName'
-          label='Last name'
-          onChange={handleProfileChange}
-          value={lastName}
-        />
-        <FormInput
-          type='text'
-          name='addressLine'
-          label='Address line'
-          onChange={handleProfileChange}
-          value={addressLine}
-        />
-        <FormInput
-          type='text'
-          name='postalCode'
-          label='Postal Code'
-          onChange={handleProfileChange}
-          value={postalCode}
-        />
-        <FormInput
-          type='text'
-          name='city'
-          label='City'
-          onChange={handleProfileChange}
-          value={city}
-        />
-        <FormInput
-          type='text'
-          name='country'
-          label='Country'
-          onChange={handleProfileChange}
-          value='The Netherlands'
-        />
-        <SaveButton type='submit'>Save changes</SaveButton>
+      <FormAddress handleSubmit={handleSubmitProfile} id={'profile-form'} />
+      <ButtonContainer>
+        <SaveButton type='submit' form='profile-form'>
+          Save changes
+        </SaveButton>
         <CancelButton onClick={() => history.goBack()}>Cancel</CancelButton>
-      </form>
+      </ButtonContainer>
 
       <h3>Update password</h3>
 
@@ -181,8 +125,10 @@ const SettingsPage = () => {
           onChange={handlePasswordChange}
           value={confirmPassword}
         />
-        <SaveButton type='submit'>Save changes</SaveButton>
-        <CancelButton onClick={() => history.goBack()}>Cancel</CancelButton>
+        <ButtonContainer>
+          <SaveButton onClick={handleSubmitPassword}>Save changes</SaveButton>
+          <CancelButton onClick={() => history.goBack()}>Cancel</CancelButton>
+        </ButtonContainer>
       </form>
     </SettingsContainer>
   );

@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 const shrinkStyles = css`
-  top: -14px;
+  top: -4px;
   font-size: 10px;
   color: #4a4a4a;
   background: #fff;

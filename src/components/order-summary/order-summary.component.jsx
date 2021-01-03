@@ -1,7 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleLoginHidden } from '../../redux/header/header.actions';
 
 import { selectCartTotal } from '../../redux/cart/cart.selectors';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
 
 import {
   OrderSummaryContainer,
@@ -14,7 +17,9 @@ import {
 } from './order-summary.styles';
 
 const CheckoutSummary = () => {
+  const dispatch = useDispatch();
   const cartTotal = useSelector(selectCartTotal);
+  const currentUser = useSelector(selectCurrentUser);
 
   return (
     <OrderSummaryContainer>
@@ -44,10 +49,16 @@ const CheckoutSummary = () => {
         <span style={{ fontSize: '20px', letterSpacing: '1px' }}>
           Order Total
         </span>
-        <ValueContainer>€113</ValueContainer>
+        <ValueContainer>€{cartTotal}</ValueContainer>
       </TotalRowContainer>
-      <OrderButton inverted>Place order</OrderButton>
-      <SignInButton inverted>Sign in & Pay</SignInButton>
+      <OrderButton inverted>
+        <Link to='/shipping'>Place order</Link>
+      </OrderButton>
+      {currentUser ? null : (
+        <SignInButton inverted onClick={() => dispatch(toggleLoginHidden())}>
+          Sign in & Pay
+        </SignInButton>
+      )}
     </OrderSummaryContainer>
   );
 };

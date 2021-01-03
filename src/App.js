@@ -13,6 +13,7 @@ import CheckoutPage from './pages/checkout/checkout.component';
 import ReservationPage from './pages/reservation/reservation.component';
 import RegisterPage from './pages/register/register.component';
 import SettingsPage from './pages/settings/settings.component';
+import ShippingPage from './pages/shipping/shippping.component';
 
 const App = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -37,6 +38,7 @@ const App = () => {
           <Route path='/reservation' component={ReservationPage} />
           <Route path='/checkout' component={CheckoutPage} />
           <Route path='/register' component={RegisterPage} />
+          <Route path='/shipping' component={ShippingPage} />
           {currentUser ? (
             <Route path='/settings' component={SettingsPage} />
           ) : (

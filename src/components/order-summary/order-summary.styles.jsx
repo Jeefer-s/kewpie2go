@@ -47,6 +47,9 @@ export const OrderButton = styled(CustomButton)`
   &:hover {
     background-color: #0e5220;
   }
+  a {
+    text-decoration: none;
+  }
 `;
 
 export const SignInButton = styled(CustomButton)`

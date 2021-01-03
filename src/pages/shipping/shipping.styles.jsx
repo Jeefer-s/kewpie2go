@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import { mediaQueries } from '../../utils/media-queries';
 
-export const SettingsContainer = styled.div`
+export const ShippingPageContainer = styled.div`
   width: 90%;
   margin: 0 auto;
   padding: 12px;
@@ -24,33 +24,9 @@ export const SettingsContainer = styled.div`
   }
 `;
 
-export const SaveButton = styled(CustomButton)`
-  float: left;
-  margin: 12px;
-  width: 160px;
-  background-color: #356349;
-  &:hover {
-    background-color: #56a679;
-  }
-`;
-
-export const CancelButton = styled(CustomButton)`
-  width: 160px;
-  margin: 12px;
-
-  background-color: #a13a3a;
-  &:hover {
-    background-color: #bf5050;
-  }
-`;
-
 export const ButtonContainer = styled.div`
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-`;
-
-export const SuccessContainer = styled.div`
-  color: darkgreen;
-  margin-bottom: 20px;
+  align-items: flex-end;
 `;
