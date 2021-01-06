@@ -27,6 +27,22 @@ export const ShippingPageContainer = styled.div`
 export const ButtonContainer = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column-reverse;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+
+  button {
+    margin: 4px;
+    width: 90%;
+  }
+
+  ${mediaQueries('md')`
+        flex-direction: row;
+
+    button {
+      margin: 8px;
+      width: 80%;
+      max-width: 300px;
+  }
+     `}
 `;

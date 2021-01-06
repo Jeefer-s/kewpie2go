@@ -14,6 +14,7 @@ import ReservationPage from './pages/reservation/reservation.component';
 import RegisterPage from './pages/register/register.component';
 import SettingsPage from './pages/settings/settings.component';
 import ShippingPage from './pages/shipping/shippping.component';
+import PaymentPage from './pages/payment/payment.component';
 
 const App = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -29,6 +30,7 @@ const App = () => {
           paddingBottom: '200px',
           width: '100%',
           margin: '28px auto',
+          minHeight: 'calc(100vh - 200px)',
         }}
       >
         <Switch>
@@ -39,6 +41,7 @@ const App = () => {
           <Route path='/checkout' component={CheckoutPage} />
           <Route path='/register' component={RegisterPage} />
           <Route path='/shipping' component={ShippingPage} />
+          <Route path='/payment' component={PaymentPage} />
           {currentUser ? (
             <Route path='/settings' component={SettingsPage} />
           ) : (
